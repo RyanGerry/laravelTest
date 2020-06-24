@@ -2,22 +2,16 @@
 
 namespace App\Http\Controllers;
 
-// class PostsController extends Controller
-// {
-//     public function show($course)
-//     {
-//        $post = \DB::table('raceresults')->where('course', $course)->first();
+use DB;
+use App\RaceResult;
 
-//         return view('post', [
-//             'post' => $post[$post]
-//         ]);
-//     }
-// }
 
 class PostsController extends Controller
 {
     public function show($course)
     {
-       return 'HelloWorld';
+        return view('post', [
+            'posts' => RaceResult::where('course', $course)->get()
+        ]);
     }
 }

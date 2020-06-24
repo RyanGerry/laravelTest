@@ -1,20 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends ('layout')
+
+@section ('content')
+<title>
+    "Ryans PaceCard"
+</title>
 <head>
-        <meta charset="UTF-8">
-        <meta
-            name="viewport"
-            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-        >
-        <meta  
-            http-equiv="X-UA-Compatible"
-            content="ie=edge"
-        >
-        <title>Ryan</title>
+    "Ryans pacecard"
 </head>
 <body>
-        <h1>RaceCard</h1>
-
-        <p>{{ $post }}</p>
+        <table class="minimalistBLack">
+            <tr>
+                <th>Horse</th>
+                <th>FinishingPosition</th>
+                <th>Course</th>
+                <th>CourseGoing</th>
+                <th>Distance</th>
+                <th>Trainer</th>
+                <th>Jockey</th>
+                <th>PaceformRating</th>
+                <th>RaceLink</th>
+                <th>HorseLink</th>
+            </tr>
+            @foreach($posts as $post)
+            <tr>
+                <td>{{$post->Horse}}</td>
+                <td>{{$post->FinishingPosition}}</td>
+                <td>{{$post->Course}}</td>
+                <td>{{$post->CourseGoing}}</td>
+                <td>{{$post->Distance}}</td>
+                <td>{{$post->Trainer}}</td>
+                <td>{{$post->Jockey}}</td>
+                <td>{{$post->PaceformRating}}</td>
+                <td><a href={{$post->RacingPostRaceLink}}>RP Race</a></td>
+                <td><a href={{$post->RacingPostHorseLink}}>RP Horse</a></td>
+            </tr>
+            @endforeach
+        </table>
 </body>
-</html>
+@section ('content')
